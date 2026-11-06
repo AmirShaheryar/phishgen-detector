@@ -3,3 +3,5 @@ data/raw/
 models/*.pkl
 __pycache__/
 .ipynb_checkpoints/
+data/processed/*.csv
+*.zip
