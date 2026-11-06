@@ -1,0 +1,1 @@
+﻿# PhishGen Detector
