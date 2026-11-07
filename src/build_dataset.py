@@ -26,6 +26,8 @@ main_parts, used_idx = [], []
 for p in [0, 1]:
     a = ai_train[ai_train.label_phish == p]
     h_pool = human[human.label_phish == p]
+    lo, hi = a["n_words"].min(), a["n_words"].max()
+    h_pool = h_pool[(h_pool.n_words >= lo) & (h_pool.n_words <= hi)]
     h = h_pool.sample(n=min(len(h_pool), len(a)), random_state=SEED)
     used_idx += list(h.index)
     main_parts += [a, h]
