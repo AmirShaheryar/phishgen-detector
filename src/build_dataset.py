@@ -14,6 +14,7 @@ ai = pd.read_csv("data/raw/ai_generated.csv")
 ai["text"] = ai["text"].map(clean_text)
 ai["source"] = "ai"
 ai["n_words"] = ai["text"].str.split().str.len()
+ai = ai[(ai.n_words >= 30) & (ai.n_words <= 200)]
 ai = ai.drop_duplicates(subset="text")
 
 held = ai[ai.source_model == HELD_OUT]
